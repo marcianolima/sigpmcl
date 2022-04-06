@@ -142,7 +142,7 @@ var AppComponent = /** @class */ (function () {
         var baseLayers = {
             "Open Street Map": tile_osm,
             "Google Maps": tile_gmaps,
-            "Google SatÃ©lite": tile_gsat
+            "Google Satélite": tile_gsat
         };
         //L.control.layers(baseLayers).addTo(this.map);
         // FIM TILE LAYERS
@@ -160,9 +160,9 @@ var AppComponent = /** @class */ (function () {
             "Seproms": this.seproms,
             "SCS": this.scs,
             "Apa do Rio Verde": this.aparioverde,
-            "Apa do PassaÃºna": this.apapassauna,
+            "Apa do Passaúna": this.apapassauna,
             "Hidrografia (linhas)": this.hidrografia_linhas,
-            "Hidrografia (PolÃ­gonos)": this.hidrografia_pol
+            "Hidrografia (Polígonos)": this.hidrografia_pol
         };
         L.control.layers(baseLayers, overlayLayers, { position: 'bottomleft' }).addTo(this.map);
     };
