@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<p-sidebar [(visible)]=\"display\">\n    <h1>Consulta de Unidade</h1>\n\n\n    <div class=\"ui-g\">\n        <div class=\"ui-g-12\">\n            <div class=\"ui-inputgroup\">\n                <span class=\"ui-inputgroup-addon\">Nº</span>\n                <p-autoComplete [(ngModel)]=\"inscricao\" field=\"inscricao\" [suggestions]=\"autocomplete\"\n                    (onSelect)=\"buscaLote($event)\" (completeMethod)=\"lotesAutocomplete($event)\"></p-autoComplete>\n\n            </div>\n        </div>\n    </div>\n\n\n    <!-- <div class=\"ui-g\">\n        <table class=\"tabela_informacoes\">\n            <thead>\n                <td>Campo</td>\n                <td>Valor</td>\n            </thead>\n            <tr>\n                <td>ID</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Inscrição</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Geolote</td>\n                <td></td>\n            </tr>\n        </table>\n    </div> -->\n\n\n\n\n</p-sidebar>\n\n<div id=\"map\">\n\n</div>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<p-sidebar [(visible)]=\"display\">\n    <h1>Consulta de Unidade</h1>\n\n\n    <div class=\"ui-g\">\n        <div class=\"ui-g-12\">\n            <div class=\"ui-inputgroup\">\n                <span class=\"ui-inputgroup-addon\">NÂº</span>\n                <p-autoComplete [(ngModel)]=\"inscricao\" field=\"inscricao\" [suggestions]=\"autocomplete\"\n                    (onSelect)=\"buscaLote($event)\" (completeMethod)=\"lotesAutocomplete($event)\"></p-autoComplete>\n\n            </div>\n        </div>\n    </div>\n\n\n    <!-- <div class=\"ui-g\">\n        <table class=\"tabela_informacoes\">\n            <thead>\n                <td>Campo</td>\n                <td>Valor</td>\n            </thead>\n            <tr>\n                <td>ID</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>InscriÃ§Ã£o</td>\n                <td></td>\n            </tr>\n            <tr>\n                <td>Geolote</td>\n                <td></td>\n            </tr>\n        </table>\n    </div> -->\n\n\n\n\n</p-sidebar>\n\n<div id=\"map\">\n\n</div>"
 
 /***/ }),
 
@@ -99,7 +99,7 @@ let AppComponent = class AppComponent {
         // Modal
         this.display = false;
     }
-    // Maneira de conectar angular ao clique do botão personalizado
+    // Maneira de conectar angular ao clique do botÃ£o personalizado
     onDocumentClicked(ev) {
         let classes = ev.path[0].classList;
         if (classes.contains('leaflet-control-custom')) {
@@ -118,28 +118,28 @@ let AppComponent = class AppComponent {
             position: "topleft"
         };
         L.Control.geocoder(options).addTo(this.map);
-        // Adicionando o botão de janela
+        // Adicionando o botÃ£o de janela
         this.botaoJanelaBusca();
-        // Adicionando o botão do street View
+        // Adicionando o botÃ£o do street View
         //this.botaoStreetView();
-        // Se quiser carregar o menu de edição
+        // Se quiser carregar o menu de ediÃ§Ã£o
         //this.carregarMenuEdicao();
         // TILE LAYERS
         let tile_osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: 'Â© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
         let tile_gmaps = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
             attribution: 'Google Maps'
         });
         let tile_gsat = L.tileLayer('http://mt1.google.com/vt/lyrs=s&hl=pl&&x={x}&y={y}&z={z}', {
-            attribution: 'Google satélite'
+            attribution: 'Google satÃ©lite'
         });
-        // Setando o google satélite como padrão
+        // Setando o google satÃ©lite como padrÃ£o
         tile_gsat.addTo(this.map);
         let baseLayers = {
             "Open Street Map": tile_osm,
             "Google Maps": tile_gmaps,
-            "Google Satélite": tile_gsat
+            "Google SatÃ©lite": tile_gsat
         };
         //L.control.layers(baseLayers).addTo(this.map);
         // FIM TILE LAYERS
@@ -157,16 +157,16 @@ let AppComponent = class AppComponent {
             "Seproms": this.seproms,
             "SCS": this.scs,
             "Apa do Rio Verde": this.aparioverde,
-            "Apa do Passaúna": this.apapassauna,
+            "Apa do PassaÃºna": this.apapassauna,
             "Hidrografia (linhas)": this.hidrografia_linhas,
-            "Hidrografia (Polígonos)": this.hidrografia_pol
+            "Hidrografia (PolÃ­gonos)": this.hidrografia_pol
         };
         L.control.layers(baseLayers, overlayLayers, { position: 'bottomleft' }).addTo(this.map);
     }
     centralizarMapaCamada(camada) {
         this.map.fitBounds(camada);
     }
-    // Adiciona o botão para abrir janela
+    // Adiciona o botÃ£o para abrir janela
     botaoJanelaBusca() {
         let ourCustomControl = L.Control.extend({
             options: {
@@ -187,7 +187,7 @@ let AppComponent = class AppComponent {
         };
         custom({ position: 'topleft' }).addTo(this.map);
     }
-    // Adiciona o botão streetView
+    // Adiciona o botÃ£o streetView
     botaoStreetView() {
         let ourCustomControl = L.Control.extend({
             options: {
@@ -215,9 +215,9 @@ let AppComponent = class AppComponent {
     abreJanelaBusca() {
         this.display = true;
     }
-    // Menu com ferramentas de ediç� o para o mapa
+    // Menu com ferramentas de ediÃ§Ã o para o mapa
     carregarMenuEdicao() {
-        // BARRA DE OPÇÕES para edição (travar para não autenticados)
+        // BARRA DE OPÃ‡Ã•ES para ediÃ§Ã£o (travar para nÃ£o autenticados)
         var drawnItems = new L.FeatureGroup();
         this.map.addLayer(drawnItems);
         var drawControl = new L.Control.Draw({
@@ -236,9 +236,9 @@ let AppComponent = class AppComponent {
             // Do whatever else you need to. (save to db; add to map etc)
             drawnItems.addLayer(layer);
         });
-        // FIM DA BARRA DE OPÇÕES
+        // FIM DA BARRA DE OPÃ‡Ã•ES
     }
-    // Método que carrega os lotes do município
+    // MÃ©todo que carrega os lotes do municÃ­pio
     carregaLotes() {
         this.lotes = L.geoJSON();
         this.lotes.options = {
@@ -253,10 +253,10 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonlotes').subscribe(data => { this.lotes.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonlotes').subscribe(data => { this.lotes.addData(data); }, error => { });
         //L.geoJSON(this.geojsonFeature).addTo(this.map);
     }
-    // Método que carrega os lotes do município
+    // MÃ©todo que carrega os lotes do municÃ­pio
     carregaSeproms() {
         this.seproms = L.geoJSON();
         this.seproms.options = {
@@ -271,7 +271,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonseproms').subscribe(data => { this.seproms.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonseproms').subscribe(data => { this.seproms.addData(data); }, error => { });
         //L.geoJSON(this.geojsonFeature).addTo(this.map);
     }
     carregaSCS() {
@@ -288,7 +288,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonscs').subscribe(data => { this.scs.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonscs').subscribe(data => { this.scs.addData(data); }, error => { });
     }
     carregaHidrografiaLinhas() {
         this.hidrografia_linhas = L.geoJSON();
@@ -303,7 +303,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geohidrografialinhas').subscribe(data => { this.hidrografia_linhas.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geohidrografialinhas').subscribe(data => { this.hidrografia_linhas.addData(data); }, error => { });
     }
     carregaHidrografiaPoligonos() {
         this.hidrografia_pol = L.geoJSON();
@@ -318,7 +318,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geohidrografiapoligonos').subscribe(data => { this.hidrografia_pol.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geohidrografiapoligonos').subscribe(data => { this.hidrografia_pol.addData(data); }, error => { });
     }
     carregaApaRioVerde() {
         this.aparioverde = L.geoJSON();
@@ -376,7 +376,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonaparioverde').subscribe(data => { this.aparioverde.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonaparioverde').subscribe(data => { this.aparioverde.addData(data); }, error => { });
     }
     carregaApaPassauna() {
         this.apapassauna = L.geoJSON();
@@ -428,7 +428,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonapadopassauna').subscribe(data => { this.apapassauna.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonapadopassauna').subscribe(data => { this.apapassauna.addData(data); }, error => { });
     }
     carregaZoneamento() {
         this.zoneamento = L.geoJSON();
@@ -500,13 +500,13 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonzoneamento').subscribe(data => { this.zoneamento.addData(data); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonzoneamento').subscribe(data => { this.zoneamento.addData(data); }, error => { });
     }
-    // Autocomplete da inscrições dos lotes
+    // Autocomplete da inscriÃ§Ãµes dos lotes
     lotesAutocomplete(e) {
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/getinscricoesautocomplete?id=' + e.query).subscribe(data => { this.autocomplete = data; }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/getinscricoesautocomplete?id=' + e.query).subscribe(data => { this.autocomplete = data; }, error => { });
     }
-    // Busca um lote pela inscrição
+    // Busca um lote pela inscriÃ§Ã£o
     buscaLote(e) {
         if (this.loteBusca) {
             this.map.removeLayer(this.loteBusca);
@@ -515,7 +515,7 @@ let AppComponent = class AppComponent {
         this.loteBusca.clearLayers();
         this.loteBusca.options = {
             onEachFeature: function (feature, layer) {
-                layer.bindPopup('<h1>' + feature.properties.f1 + '</h1><p>Inscrição: ' + feature.properties.f2 + '</p>');
+                layer.bindPopup('<h1>' + feature.properties.f1 + '</h1><p>InscriÃ§Ã£o: ' + feature.properties.f2 + '</p>');
                 layer.setStyle({
                     weight: 1,
                     color: 'black',
@@ -525,7 +525,7 @@ let AppComponent = class AppComponent {
                 });
             }
         };
-        this.http.get('http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonlote?id=' + e.inscricao).subscribe(data => { this.loteBusca.addData(data), this.loteBusca.addTo(this.map), this.centralizarMapaCamada(this.loteBusca.getBounds()); }, error => { });
+        this.http.get('https://cors-anywhere.herokuapp.com/http://apipmcl.campolargo.pr.gov.br/central/geo/geojsonlote?id=' + e.inscricao).subscribe(data => { this.loteBusca.addData(data), this.loteBusca.addTo(this.map), this.centralizarMapaCamada(this.loteBusca.getBounds()); }, error => { });
         this.inscricao = "";
         //this.display = false;
     }
