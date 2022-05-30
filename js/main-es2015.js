@@ -149,6 +149,7 @@ let AppComponent = class AppComponent {
         this.carregaApaRioVerde();
         this.carregaZoneamento();
         this.carregaApaPassauna();
+	this.carregaMeasure();
         this.carregaHidrografiaLinhas();
         this.carregaHidrografiaPoligonos();
         let overlayLayers = {
@@ -238,6 +239,22 @@ let AppComponent = class AppComponent {
         });
         // FIM DA BARRA DE OPÃ‡Ã•ES
     }
+	
+	// add measure plugin
+	carregaMeasure(){
+	var measureControl = L.control.measure({
+    primaryLengthUnit: 'meters',
+    secondaryLengthUnit: 'kilometers',
+    primaryAreaUnit: 'sqmeters',
+    position: 'topleft',
+    activeColor: '#7e81e6',
+    completedColor: '#b52424',
+    popupOptions: { className: 'leaflet-measure-resultpopup', autoPanPadding: [10, 10] }
+});
+measureControl.addTo(this.map);	
+	}
+	
+	
     // MÃ©todo que carrega os lotes do municÃ­pio
     carregaLotes() {
         this.lotes = L.geoJSON();
